@@ -35,14 +35,13 @@ public class BooksController {
     }
 
     @PostMapping("/books")
-    private int saveBook(@RequestBody Books books) {
-        booksService.saveOrUpdate(books);
-        return books.getBookId();
+    private Books saveBook(@RequestBody Books books) {
+        return booksService.save(books);
     }
 
     @PutMapping("/books")
     private Books update(@RequestBody Books books) {
-        booksService.saveOrUpdate(books);
+        booksService.save(books);
         return books;
     }
 }

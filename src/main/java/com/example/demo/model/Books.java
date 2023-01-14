@@ -1,19 +1,19 @@
 package com.example.demo.model;
 
-import javax.persistence.*;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 
 @Entity
 @Table
+@Getter
+@Setter
 public class Books {
     @Id
-    @Column
-    private int bookId;
+    @Column(name = "book_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long bookId;
     @Column
     private String bookName;
     @Column
@@ -21,12 +21,8 @@ public class Books {
     @Column
     private int price;
 
-    public int getBookId() {
+    public Long getBookId() {
         return bookId;
-    }
-
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
     }
 
     public String getBookName() {
